@@ -1,5 +1,3 @@
-import lombok.Data;
-
 public class University {
     private String id;
     private String fullName;

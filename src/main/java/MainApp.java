@@ -16,6 +16,6 @@ public class MainApp {
                 .mainProfile(StudyProfile.IT)
                 .build();
 
-        System.out.println(String.format("Студент: %s\nУниверситет: %s", student, university));
+        System.out.printf("Студент: %s\nУниверситет: %s%n", student, university);
     }
 }
