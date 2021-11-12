@@ -1,9 +1,9 @@
 import comparators.StudentsComparator;
 import comparators.UniversitiesComparator;
 import enums.StudentComparatorsEnum;
+import enums.StudyProfile;
 import enums.UniversityComparatorsEnum;
 import models.Student;
-import enums.StudyProfile;
 import models.University;
 
 import java.io.IOException;
@@ -54,5 +54,4 @@ public class MainApp {
         universities.stream().sorted(universitiesComparator).forEach(System.out::println);
 
     }
-
 }
