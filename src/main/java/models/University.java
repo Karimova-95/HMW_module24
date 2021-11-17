@@ -1,9 +1,11 @@
 package models;
 
+import com.google.gson.annotations.SerializedName;
 import enums.StudyProfile;
 
 public class University {
     private String id;
+    @SerializedName(value = "name")
     private String fullName;
     private String shortName;
     private int yearOfFoundation;
