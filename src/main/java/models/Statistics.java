@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Statistics {
     private StudyProfile mainProfile;
-    private float avgExamScore;
+    private double avgExamScore;
     private int studCount;
     private int univCount;
     private List<String> univNames;
@@ -14,7 +14,7 @@ public class Statistics {
     public Statistics() {
     }
 
-    public Statistics(StudyProfile mainProfile, float avgExamScore, int studCount, int univCount, List<String> univNames) {
+    public Statistics(StudyProfile mainProfile, double avgExamScore, int studCount, int univCount, List<String> univNames) {
         this.mainProfile = mainProfile;
         this.avgExamScore = avgExamScore;
         this.studCount = studCount;
@@ -30,11 +30,11 @@ public class Statistics {
         this.mainProfile = mainProfile;
     }
 
-    public float getAvgExamScore() {
+    public double getAvgExamScore() {
         return avgExamScore;
     }
 
-    public void setAvgExamScore(float avgExamScore) {
+    public void setAvgExamScore(double avgExamScore) {
         this.avgExamScore = avgExamScore;
     }
 

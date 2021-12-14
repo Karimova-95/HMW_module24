@@ -2,8 +2,15 @@ package enums;
 
 public enum StudyProfile {
     MEDICINE("Медицина"),
-    IT("Информационные технологии"),
-    TEACHER("Преподаватель");
+    PROGRAMMING("Программирование"),
+    PHILOLOGY("Филология"),
+    HISTORY("История"),
+    ART("Искусство"),
+    ECONOMY("Экономика"),
+    MARKETING("Маркетинг"),
+    PHYSICS("Физика"),
+    LINGUISTICS("Лингвистка"),
+    MATHEMATICS("Математика");
 
     final String profileName;
 

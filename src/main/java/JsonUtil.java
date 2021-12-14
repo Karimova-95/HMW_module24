@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonUtil {
-    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private JsonUtil() {
     }
 
