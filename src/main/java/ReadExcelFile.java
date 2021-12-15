@@ -16,9 +16,6 @@ import java.util.List;
 
 public class ReadExcelFile {
 
-    private ReadExcelFile() {
-    }
-
     public static List<Student> readStudents(String path) throws IOException {
         List<Student> students = new ArrayList<>();
         File file = new File("C:\\Users\\Admin\\IdeaProjects\\HMW_module24\\src\\main\\resources\\universityInfo.xlsx");

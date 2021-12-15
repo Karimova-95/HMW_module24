@@ -41,12 +41,13 @@ public class XlsWriter {
         }
         System.out.println(worksheet.getSheetName() + " заполнен");
 
-        HSSFFont font = workbook.createFont();
-        font.setFontHeightInPoints((short) 12);
-        font.setFontName("Times New Roman");
-        font.setBold(true);
-        font.setItalic(false);
+        createStyleForMainRow(worksheet, row, createFontForMainRow());
 
+        workbook.write(fileOut);
+        fileOut.close();
+    }
+
+    private static void createStyleForMainRow(HSSFSheet worksheet, Row row, HSSFFont font) {
         HSSFCellStyle style = workbook.createCellStyle();
         for (int j = 0; j <= 4; j++) {
             row.getCell(j).setCellStyle(style);
@@ -62,9 +63,14 @@ public class XlsWriter {
             worksheet.autoSizeColumn(i);
             worksheet.setColumnWidth(i, worksheet.getColumnWidth(i) * 11 / 10);
         }
-
-        workbook.write(fileOut);
-        fileOut.close();
     }
 
+    private static HSSFFont createFontForMainRow() {
+        HSSFFont font = workbook.createFont();
+        font.setFontHeightInPoints((short) 12);
+        font.setFontName("Times New Roman");
+        font.setBold(true);
+        font.setItalic(false);
+        return font;
+    }
 }
