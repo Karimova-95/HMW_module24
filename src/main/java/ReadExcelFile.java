@@ -13,14 +13,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class ReadExcelFile {
+    private static final Logger LOGGER = Logger.getLogger(ReadExcelFile.class.getName());
 
-    public static List<Student> readStudents(String path) throws IOException {
+    public static List<Student> readStudents(String path) {
         List<Student> students = new ArrayList<>();
         File file = new File("C:\\Users\\Admin\\IdeaProjects\\HMW_module24\\src\\main\\resources\\universityInfo.xlsx");
-        FileInputStream fis = new FileInputStream(file);
-        XSSFWorkbook wb = new XSSFWorkbook(fis);
+        XSSFWorkbook wb = null;
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            wb = new XSSFWorkbook(fis);
+        } catch (IOException ex) {
+            LOGGER.warning("Возникла ошибка при чтении файла");
+        }
         XSSFSheet sheet = wb.getSheetAt(0);
         Iterator<Row> itr = sheet.iterator();
         itr.next();
@@ -50,11 +57,16 @@ public class ReadExcelFile {
         return students;
     }
 
-    public static List<University> readUniversities(String path) throws IOException {
+    public static List<University> readUniversities(String path) {
         List<University> universities = new ArrayList<>();
         File file = new File(path);
-        FileInputStream fis = new FileInputStream(file);
-        XSSFWorkbook wb = new XSSFWorkbook(fis);
+        XSSFWorkbook wb = null;
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            wb = new XSSFWorkbook(fis);
+        } catch (IOException ex) {
+            LOGGER.warning("Возникла ошибка при чтении файла");
+        }
         XSSFSheet sheet = wb.getSheetAt(1);
         Iterator<Row> itr = sheet.iterator();
         itr.next();

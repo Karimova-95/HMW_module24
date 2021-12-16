@@ -6,9 +6,11 @@ import models.University;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class ConverterToStatic {
+public class ConverterToStatistic {
+    private static final Logger LOGGER = Logger.getLogger(ConverterToStatistic.class.getName());
 
     public static List<Statistics> convert(List<Student> students, List<University> universities) {
         List<Statistics> statistics = new ArrayList<>();
@@ -38,6 +40,7 @@ public class ConverterToStatic {
 
             statistics.add(statistic);
         }
+        LOGGER.info("Список Statistics создан");
         return statistics;
     }
 }

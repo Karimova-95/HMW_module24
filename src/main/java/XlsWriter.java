@@ -13,17 +13,24 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class XlsWriter {
     private static int sheetNumber = 1;
-    private static final HSSFWorkbook workbook = new HSSFWorkbook();
+    private static final HSSFWorkbook workbook;
+    static {
+         workbook = new HSSFWorkbook();
+    }
+    private static final Logger LOGGER = Logger.getLogger(XlsWriter.class.getName());
 
     public static void generateAndFillTable(List<Statistics> list, String path) throws IOException {
+        String filePath = path + "/Statistics.xls";
+        OutputStream fileOut = new FileOutputStream(filePath);
+        LOGGER.info("Файл для выгрузки данных можете посмотреть здесь: " + filePath);
 
-        OutputStream fileOut = new FileOutputStream(path + "/Statistics.xls");
         HSSFSheet worksheet = workbook.createSheet("Workbook" + sheetNumber++);
-        System.out.println(worksheet.getSheetName() + " создан");
+        LOGGER.info(worksheet.getSheetName() + " создан");
         Row row = worksheet.createRow(0);
         row.createCell(0).setCellValue("Профиль обучения");
         row.createCell(1).setCellValue("Средний балл за экзамен");
@@ -39,7 +46,7 @@ public class XlsWriter {
             dataRow.createCell(3).setCellValue(list.get(i).getUnivCount());
             dataRow.createCell(4).setCellValue(list.get(i).getUnivNames().stream().collect(Collectors.joining(", ")));
         }
-        System.out.println(worksheet.getSheetName() + " заполнен");
+        LOGGER.info(worksheet.getSheetName() + " заполнен");
 
         createStyleForMainRow(worksheet, row, createFontForMainRow());
 
