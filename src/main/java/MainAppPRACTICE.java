@@ -1,11 +1,6 @@
-import comparators.StudentsComparator;
-import comparators.UniversitiesComparator;
-import enums.StudentComparatorsEnum;
-import enums.UniversityComparatorsEnum;
 import io.XlsReader;
 import models.Student;
 import models.University;
-import util.ComparatorUtil;
 import util.JsonUtil;
 
 import java.util.List;
@@ -22,11 +17,6 @@ public class MainAppPRACTICE {
         for (University u : universities) {
             System.out.println(u);
         }
-        StudentsComparator comparator = ComparatorUtil.getMyComparator(StudentComparatorsEnum.STUDENTAVGEXAMSCORECOMPARATOR);
-        students.stream().sorted(comparator).forEach(System.out::println);
-
-        UniversitiesComparator universitiesComparator = ComparatorUtil.getMyComparator(UniversityComparatorsEnum.UNIVERSITYSHORTNAMECOMPARATOR);
-        universities.stream().sorted(universitiesComparator).forEach(System.out::println);
 
         String studentListJSON = JsonUtil.studentListToJSON(students);
         String universityListLSON = JsonUtil.universityListToJSON(universities);
