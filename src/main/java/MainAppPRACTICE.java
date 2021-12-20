@@ -2,27 +2,30 @@ import comparators.StudentsComparator;
 import comparators.UniversitiesComparator;
 import enums.StudentComparatorsEnum;
 import enums.UniversityComparatorsEnum;
+import io.XlsReader;
 import models.Student;
 import models.University;
+import util.ComparatorUtil;
+import util.JsonUtil;
 
 import java.util.List;
 
 public class MainAppPRACTICE {
     public static void main(String[] args) {
         String fileDir = "C:\\Users\\Admin\\IdeaProjects\\HMW_module24\\src\\main\\resources\\universityInfo.xlsx";
-        List<Student> students = ReadExcelFile.readStudents(fileDir);
+        List<Student> students = XlsReader.readStudents(fileDir);
         for (Student s : students) {
             System.out.println(s);
         }
 
-        List<University> universities = ReadExcelFile.readUniversities(fileDir);
+        List<University> universities = XlsReader.readUniversities(fileDir);
         for (University u : universities) {
             System.out.println(u);
         }
-        StudentsComparator comparator = ComparatorsUtil.getMyComparator(StudentComparatorsEnum.STUDENTAVGEXAMSCORECOMPARATOR);
+        StudentsComparator comparator = ComparatorUtil.getMyComparator(StudentComparatorsEnum.STUDENTAVGEXAMSCORECOMPARATOR);
         students.stream().sorted(comparator).forEach(System.out::println);
 
-        UniversitiesComparator universitiesComparator = ComparatorsUtil.getMyComparator(UniversityComparatorsEnum.UNIVERSITYSHORTNAMECOMPARATOR);
+        UniversitiesComparator universitiesComparator = ComparatorUtil.getMyComparator(UniversityComparatorsEnum.UNIVERSITYSHORTNAMECOMPARATOR);
         universities.stream().sorted(universitiesComparator).forEach(System.out::println);
 
         String studentListJSON = JsonUtil.studentListToJSON(students);

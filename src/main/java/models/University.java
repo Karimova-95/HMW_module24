@@ -2,17 +2,32 @@ package models;
 
 import com.google.gson.annotations.SerializedName;
 import enums.StudyProfile;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
+@XmlType
+@XmlAccessorType(XmlAccessType.FIELD)
 public class University {
+    @XmlElement(name = "universityId")
     private String id;
     @SerializedName(value = "name")
+    @XmlElement(name = "universityName")
     private String fullName;
+    @XmlTransient
     private String shortName;
+    @XmlTransient
     private int yearOfFoundation;
+    @XmlElement(name = "universityProfile")
     private StudyProfile mainProfile;
 
     public static class Builder {

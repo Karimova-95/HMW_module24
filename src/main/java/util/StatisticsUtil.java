@@ -1,3 +1,5 @@
+package util;
+
 import enums.StudyProfile;
 import models.Statistics;
 import models.Student;
@@ -9,8 +11,8 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class ConverterToStatistic {
-    private static final Logger LOGGER = Logger.getLogger(ConverterToStatistic.class.getName());
+public class StatisticsUtil {
+    private static final Logger LOGGER = Logger.getLogger(StatisticsUtil.class.getName());
 
     public static List<Statistics> convert(List<Student> students, List<University> universities) {
         List<Statistics> statistics = new ArrayList<>();

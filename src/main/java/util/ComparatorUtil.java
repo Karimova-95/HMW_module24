@@ -1,3 +1,5 @@
+package util;
+
 import comparators.StudentAvgExamScoreComparator;
 import comparators.StudentCurrentCourseNumberComparator;
 import comparators.StudentFullNameComparator;
@@ -12,9 +14,9 @@ import comparators.UniversityYearOfFoundationComparator;
 import enums.StudentComparatorsEnum;
 import enums.UniversityComparatorsEnum;
 
-public class ComparatorsUtil {
+public class ComparatorUtil {
 
-    private ComparatorsUtil() {
+    private ComparatorUtil() {
     }
 
     public static StudentsComparator getMyComparator(StudentComparatorsEnum studentComparatorsEnum) {

@@ -1,3 +1,5 @@
+package io;
+
 import models.Student;
 import enums.StudyProfile;
 import models.University;
@@ -15,8 +17,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class ReadExcelFile {
-    private static final Logger LOGGER = Logger.getLogger(ReadExcelFile.class.getName());
+public class XlsReader {
+    private static final Logger LOGGER = Logger.getLogger(XlsReader.class.getName());
 
     public static List<Student> readStudents(String path) {
         List<Student> students = new ArrayList<>();

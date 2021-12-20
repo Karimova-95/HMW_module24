@@ -1,7 +1,11 @@
 import enums.StudyProfile;
+import io.XlsReader;
+import io.XlsWriter;
 import models.Statistics;
 import models.Student;
 import models.University;
+import util.ObjectsList;
+import util.StatisticsUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +19,7 @@ public class MainAppModule27 {
     static {
         System.setProperty("java.util.logging.config.file",
                 "C:\\Users\\Admin\\IdeaProjects\\HMW_module24\\src\\main\\resources\\logging.properties");
-        LOGGER = Logger.getLogger(ReadExcelFile.class.getName());
+        LOGGER = Logger.getLogger(XlsReader.class.getName());
     }
 
     public static void main(String[] args) throws IOException {
@@ -31,7 +35,7 @@ public class MainAppModule27 {
 
         List<Student> studentsList = ObjectsList.getStudents();
         List<University> universitiesList = ObjectsList.getUniversities();
-        List<Statistics> convert = ConverterToStatistic.convert(studentsList, universitiesList);
+        List<Statistics> convert = StatisticsUtil.convert(studentsList, universitiesList);
         XlsWriter.generateAndFillTable(convert, "C:\\Users\\Admin\\IdeaProjects\\HMW_module24");
     }
 }

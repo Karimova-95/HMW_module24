@@ -1,3 +1,5 @@
+package util;
+
 import enums.StudyProfile;
 import models.Student;
 import models.University;
